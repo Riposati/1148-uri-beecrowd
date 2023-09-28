@@ -135,7 +135,7 @@ class Graph {
         return false;
     }
 
-    private void BFS(Vertex v) {
+    private void breathFirstSearch(Vertex v) {
         v.getEdgeList().forEach(edge -> {
             double sum;
             sum = v.getDistance() + edge.getEdgeWeight();
@@ -149,7 +149,7 @@ class Graph {
     public void dijkstra(int labelInitialVertex) {
         if (vertexFound(labelInitialVertex)) {
             while (!this.vertexPriorityQueue.isEmpty()) {
-                BFS(Objects.requireNonNull(vertexPriorityQueue.poll()));
+                breathFirstSearch(Objects.requireNonNull(vertexPriorityQueue.poll()));
             }
         }
     }
